@@ -7,7 +7,7 @@ Tests: false warnings on normal test segments, recall on the provided abnormal r
 synthetic perturbations, its gain / offset / order-shuffle / circular-shift probes, and our 11 injected faults.
 Detection power is also compared threshold-free: AUC of each fault against the same segments left clean.
 Writes results/notebook_compare/*.csv
-  python -m kamp.notebook_compare
+  python -m kamp.experiments.notebook_compare
 The notebook's own numbers come from tables written by running it (see results/notebook_compare/README.txt)."""
 import os
 import warnings
@@ -15,11 +15,11 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 warnings.filterwarnings("ignore")
-from .data import load_segments
-from .detectors import clear_cache
-from .faults import FAULTS
-from .models import catalogue, M3, FINAL
-from .system import fill_short
+from ..data import load_segments
+from ..detectors import clear_cache
+from ..faults import FAULTS
+from ..models import catalogue, M3, FINAL
+from ..system import fill_short
 from .evaluate import PICK
 
 OUT = "results/notebook_compare"

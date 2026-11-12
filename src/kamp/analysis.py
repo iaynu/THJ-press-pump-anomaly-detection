@@ -16,8 +16,7 @@ import pandas as pd
 
 from .data import SENSORS, segment_table
 from .features import FEATURES, CUR
-from .system import fill_short, diagnose
-from .evaluate import _ewma
+from .system import fill_short, diagnose, ewma
 from .detectors import clear_cache
 
 LEVEL = {0: "정상", 1: "주의", 2: "경고"}
@@ -108,7 +107,7 @@ def analyze(d, B):
     order = np.argsort(ts)
     z = S.z(sc_f[order])
     trend = np.zeros(len(segs), bool)
-    trend[order] = (z > tr["strict_z"]) | (_ewma(z, tr.get("lambda", tr.get("lam", 0.2))) > tr["ewma_z"])
+    trend[order] = (z > tr["strict_z"]) | (ewma(z, tr.get("lambda", tr.get("lam", 0.2))) > tr["ewma_z"])
 
     seg_rows, row_rows = [], []
     for i, s in enumerate(segs):

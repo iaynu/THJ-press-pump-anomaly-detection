@@ -58,3 +58,9 @@ FAULTS = {
     "전류 파형 왜곡(2.5Hz 성분)": ("×진폭", [0.02, 0.05, 0.1, 0.2, 0.3], lambda x, v, sd, r: harmonic(x, v, r)),
 }
 
+
+def glitch(x, rng, size=0.5):
+    x = x.copy()
+    amp = (x[:, 2].max() - x[:, 2].min()) / 2
+    x[rng.integers(len(x)), 2] += size * amp
+    return x

@@ -2,20 +2,20 @@
 For trim_z in {none, 3, 3.5, 4, 5, 6}: clean-data false alarms (random / blocks / forward), fault recall,
 and recall of the same early fault when part of the normal training label is contaminated with it.
 The detectors are fitted once per training set; only the calibration step changes with trim_z.
-  python -m kamp.trim_sweep clean    -> results/raw/trim_sweep_clean.csv
-  python -m kamp.trim_sweep contam   -> results/raw/trim_sweep_contam.csv
-  python -m kamp.trim_sweep contam_m3 -> results/raw/trim_sweep_contam_m3.csv (same check for the mixture model M3)"""
+  python -m kamp.experiments.trim_sweep clean    -> results/raw/trim_sweep_clean.csv
+  python -m kamp.experiments.trim_sweep contam   -> results/raw/trim_sweep_contam.csv
+  python -m kamp.experiments.trim_sweep contam_m3 -> results/raw/trim_sweep_contam_m3.csv (same check for the mixture model M3)"""
 import sys
 import warnings
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
 warnings.filterwarnings("ignore")
-from .data import load_segments
-from .detectors import clear_cache
-from .faults import FAULTS, spikes, scale
-from .models import JOINT, JOINT_GMM, CURRENT
-from .system import System, fill_short, oof_scores, _pct
+from ..data import load_segments
+from ..detectors import clear_cache
+from ..faults import FAULTS, spikes, scale
+from ..models import JOINT, JOINT_GMM, CURRENT
+from ..system import System, fill_short, oof_scores, _pct
 from .evaluate import PICK
 
 TRIMS = [None, 3.0, 3.5, 4.0, 5.0, 6.0]

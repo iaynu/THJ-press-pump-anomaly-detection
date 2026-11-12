@@ -119,3 +119,11 @@ def diagnose(vib_det, cur_det, x, df_v=6, df_c=3, strong=1e-3):
     if pv < np.log(strong) and pc < np.log(strong):
         return "복합형"
     return "진동형" if pv < pc else "전류형"
+
+
+def ewma(z, lam=0.2):
+    out, e = [], 0.0
+    for v in z:
+        e = lam * v + (1 - lam) * e
+        out.append(e)
+    return np.array(out)

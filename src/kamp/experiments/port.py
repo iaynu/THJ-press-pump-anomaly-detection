@@ -16,12 +16,12 @@ import pandas as pd
 from functools import partial
 from sklearn.model_selection import KFold
 warnings.filterwarnings("ignore")
-from .data import load_segments
-from .detectors import FeatureDetector, MCD, clear_cache
-from .faults import FAULTS
-from .features import CUR
-from .system import System, fill_short
-from .evaluate import PICK, glitch, low_load
+from ..data import load_segments
+from ..detectors import FeatureDetector, MCD, clear_cache
+from ..faults import FAULTS, glitch
+from ..features import CUR
+from ..system import System, fill_short
+from .evaluate import PICK, low_load
 
 VARIANTS = {
     "P0 기준 (우리 최종 구조)": {},

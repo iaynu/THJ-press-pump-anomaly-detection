@@ -7,8 +7,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 from scipy.stats import spearmanr
-from .features import FEATURES
-from .models import FINAL, M2, M3
+from ..features import FEATURES
+from ..models import FINAL, M2, M3
 
 RAW, TAB, FIG = "results/raw", "results/tables", "results/figures"
 KEY = [FINAL, M3, M2, "M1 통합 모델 (9특징 MCD)", "B2 kNN 거리", "B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정)",

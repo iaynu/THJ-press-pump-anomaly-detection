@@ -8,12 +8,12 @@ import pandas as pd
 from sklearn.model_selection import KFold
 
 warnings.filterwarnings("ignore")
-from .data import load_segments
-from .faults import FAULTS
-from .models import final_system
-from .system import fill_short
+from ..data import load_segments
+from ..faults import FAULTS
+from ..models import final_system
+from ..system import fill_short
 from .evaluate import PICK
-from .detectors import clear_cache
+from ..detectors import clear_cache
 
 QS = [0.90, 0.925, 0.95, 0.97, 0.98, 0.99, 0.995]
 

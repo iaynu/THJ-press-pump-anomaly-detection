@@ -1,5 +1,5 @@
 """Side-by-side tables: the Colab notebook's final model (A_physics / none, as run) vs our models, same split and tests.
-Reads results/notebook_compare/ours_*.csv (kamp.notebook_compare) and the notebook's own outputs + theirs_*.csv
+Reads results/notebook_compare/ours_*.csv (kamp.experiments.notebook_compare) and the notebook's own outputs + theirs_*.csv
 (see README.txt in the folder)."""
 import numpy as np
 import pandas as pd

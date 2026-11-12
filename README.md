@@ -54,11 +54,12 @@
 ├── run.py            진입점: train / predict / evaluate / all
 ├── app.py            Streamlit 앱 진입점
 ├── views/            앱 화면: analysis.py(파일 분석), monitor.py(모니터링 시연)
-├── src/kamp/         핵심 코드
-│   ├── data.py · features.py · detectors.py · system.py · models.py · analysis.py   추론 경로
-│   ├── evaluate.py · sensitivity.py · trim_sweep.py · contamination.py · regime_check.py
-│   │   faults.py · port.py · glitch_fix.py · notebook_compare*.py · report.py        실험과 보고서 생성
-│   └── ui.py · dashboard_core.py                                                       앱 지원
+├── src/kamp/        핵심 코드 (추론·앱이 쓰는 모듈)
+│   ├── data.py features.py detectors.py system.py models.py analysis.py   조각 분할, 특징, 탐지기, 보정, 모델 구성, 파일 분석
+│   ├── faults.py                                                          고장 주입
+│   ├── ui.py dashboard_core.py                                            앱 지원
+│   └── experiments/  평가·보고서 생성 (python run.py evaluate가 호출)
+│       evaluate sensitivity trim_sweep contamination regime_check port glitch_fix notebook_compare* report
 ├── data/             대회 제공 원본 CSV 2개
 ├── models/           학습된 모델 (final_system.pkl 제출용, dashboard_system.pkl 시연용)
 ├── results/

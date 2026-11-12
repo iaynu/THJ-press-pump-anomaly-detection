@@ -26,8 +26,8 @@ from .data import load_segments
 from .faults import FAULTS, scale, shift, cur_amp, spikes, harmonic
 from .features import FEATURES
 from .models import final_system, VIBONLY, CURRENT
-from .system import diagnose
-from .evaluate import _ewma, glitch
+from .system import diagnose, ewma
+from .faults import glitch
 
 LEVEL_NAME = {0: "정상", 1: "주의", 2: "경고"}
 HOLDOUT_SHARE = 0.2
@@ -46,7 +46,7 @@ def build(data_dir="data", out=PATH):
     oof = S.oof[np.argsort([N[i].t0 for i in tr])]          # out-of-fold scores in time order
     z_ref = S.z(oof[~np.isnan(oof)])
     strict = float(np.quantile(z_ref, 0.997))
-    er = _ewma(z_ref)
+    er = ewma(z_ref)
     cands = np.quantile(er, np.linspace(0.99, 0.9999, 60))
     e_th = float(next((c for c in cands if np.mean((z_ref > strict) | (er > c)) <= 0.01), cands[-1]))
     bundle = dict(system=S, vib_diag=VIBONLY().fit(xs), cur_diag=CURRENT().fit(xs),

@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 from kamp.data import load_segments                                     # noqa: E402
 from kamp.models import final_system, VIBONLY, CURRENT                   # noqa: E402
 from kamp.analysis import analyze, read_csv                               # noqa: E402
-from kamp.evaluate import _ewma                                          # noqa: E402
+from kamp.system import ewma                                             # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA, MODELS, RESULTS = (os.path.join(ROOT, d) for d in ("data", "models", "results"))
@@ -39,7 +39,7 @@ def train():
     oof = S.oof[order]
     z_ref = S.z(oof[~np.isnan(oof)])
     strict = float(np.quantile(z_ref, 0.997))
-    er = _ewma(z_ref)
+    er = ewma(z_ref)
     cands = np.quantile(er, np.linspace(0.99, 0.9999, 60))
     e_th = float(next((c for c in cands if np.mean((z_ref > strict) | (er > c)) <= 0.01), cands[-1]))
     bundle = {"system": S, "vib_diag": VIBONLY().fit(xs), "cur_diag": CURRENT().fit(xs),
@@ -89,12 +89,12 @@ def evaluate():
         if p.wait():
             raise SystemExit(f"failed: {a}")
 
-    pair(["kamp.evaluate", "random"], ["kamp.evaluate", "blocks"])          # model comparison (~25 min)
-    pair(["kamp.evaluate", "forward"], ["kamp.sensitivity"])                # forward split, threshold sensitivity
-    pair(["kamp.trim_sweep", "clean"], ["kamp.trim_sweep", "contam"])       # robust calibration: cost and benefit
-    pair(["kamp.trim_sweep", "contam_m3"], ["kamp.contamination"])          # label noise: M3, and M2 vs M3 without trimming
-    subprocess.run([sys.executable, "-m", "kamp.regime_check"], cwd=ROOT, env=env, check=True)   # low-load state check
-    subprocess.run([sys.executable, "-m", "kamp.report"], cwd=ROOT, env=env, check=True)
+    pair(["kamp.experiments.evaluate", "random"], ["kamp.experiments.evaluate", "blocks"])          # model comparison (~25 min)
+    pair(["kamp.experiments.evaluate", "forward"], ["kamp.experiments.sensitivity"])                # forward split, threshold sensitivity
+    pair(["kamp.experiments.trim_sweep", "clean"], ["kamp.experiments.trim_sweep", "contam"])       # robust calibration: cost and benefit
+    pair(["kamp.experiments.trim_sweep", "contam_m3"], ["kamp.experiments.contamination"])          # label noise: M3, and M2 vs M3 without trimming
+    subprocess.run([sys.executable, "-m", "kamp.experiments.regime_check"], cwd=ROOT, env=env, check=True)   # low-load state check
+    subprocess.run([sys.executable, "-m", "kamp.experiments.report"], cwd=ROOT, env=env, check=True)
 
 
 if __name__ == "__main__":

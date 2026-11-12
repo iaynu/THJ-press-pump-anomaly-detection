@@ -22,12 +22,12 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import roc_auc_score, average_precision_score
 
 warnings.filterwarnings("ignore")
-from .data import load_segments
-from .faults import FAULTS
-from .models import catalogue, FINAL, DETAIL, M2, M3, JOINT, CURRENT, VIBONLY
-from .detectors import MCD
-from .system import fill_short, diagnose
-from .detectors import clear_cache
+from ..data import load_segments
+from ..faults import FAULTS
+from ..models import catalogue, FINAL, DETAIL, M2, M3, JOINT, CURRENT, VIBONLY
+from ..detectors import MCD
+from ..system import fill_short, diagnose
+from ..detectors import clear_cache
 
 PICK = [("진동 전체 증가", 1.5), ("진동 전체 증가", 2.0), ("충격 스파이크(16행당 1회)", 2), ("충격 스파이크(16행당 1회)", 3),
         ("하부 진동 극성 반전", 1), ("전류 오프셋 이동", 5), ("전류 오프셋 이동", 10), ("전류 진폭 증가", 1.2),
@@ -37,13 +37,6 @@ RAMP = {"진동 전체 증가": (1.0, 2.0), "충격 스파이크(16행당 1회)"
         "전류 진폭 증가": (1.0, 1.3), "전류 파형 왜곡(2.5Hz 성분)": (0.0, 0.1)}
 ONSET = 30
 STREAM_MODELS = [FINAL, M2, M3, "M1 통합 모델 (9특징 MCD)", "B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99)"]
-
-
-def glitch(x, rng, size=0.5):
-    x = x.copy()
-    amp = (x[:, 2].max() - x[:, 2].min()) / 2
-    x[rng.integers(len(x)), 2] += size * amp
-    return x
 
 
 def low_load(seg):
@@ -58,14 +51,6 @@ def _auc(neg, pos):
     if len(np.unique(y[ok])) < 2:
         return np.nan, np.nan
     return roc_auc_score(y[ok], s[ok]), average_precision_score(y[ok], s[ok])
-
-
-def _ewma(z, lam=0.2):
-    out, e = [], 0.0
-    for v in z:
-        e = lam * v + (1 - lam) * e
-        out.append(e)
-    return np.array(out)
 
 
 def _runs(a):
@@ -87,10 +72,10 @@ def stream_rules(S, train_segs):
     oof = S.oof[order]
     z_ref = S.z(oof[~np.isnan(oof)])
     strict = np.quantile(z_ref, 0.997)
-    er = _ewma(z_ref)
+    er = ewma(z_ref)
     cands = np.quantile(er, np.linspace(0.99, 0.9999, 60))
     e_th = next((c for c in cands if np.mean((z_ref > strict) | (er > c)) <= 0.01), cands[-1])
-    return lambda z: (z > strict) | (_ewma(z) > e_th)
+    return lambda z: (z > strict) | (ewma(z) > e_th)
 
 
 def run_fold(protocol, fold, seed, train, test, O, models, rows, segrows, streamrows, do_stream=False):
