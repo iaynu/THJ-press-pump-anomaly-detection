@@ -1,0 +1,17 @@
+done M1 통합 모델 (9특징 MCD)
+done 최종 (M2 + 견고한 보정)
+done M3 상태 혼합
+                                             0                 1         2
+model                       M1 통합 모델 (9특징 MCD)  최종 (M2 + 견고한 보정)  M3 상태 혼합
+false_warning_segment_rate               0.008             0.017       0.0
+attention_segment_rate                   0.017             0.042     0.158
+n_direct_normal                            114               114       114
+abnormal_direct_recall                     1.0               1.0       1.0
+abnormal_all_recall                        1.0               1.0       1.0
+precision_mixture                        0.947               0.9       1.0
+f1_mixture                               0.973             0.947       1.0
+tp                                          18                18        18
+fn                                           0                 0         0
+fp                                           1                 2         0
+tn                                         113               112       114
+real_vs_normal_auc                         1.0               1.0       1.0

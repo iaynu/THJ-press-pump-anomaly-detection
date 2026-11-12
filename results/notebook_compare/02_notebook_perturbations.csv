@@ -1,0 +1,7 @@
+test,노트북 최종 (물리특징 MCD 단독),M1 통합 모델 (9특징 MCD),M3 상태 혼합,최종 (M2 + 견고한 보정)
+current_amplitude_increase,0.202,0.404,0.816,0.781
+current_center_shift,1.0,0.842,0.991,0.991
+current_distortion,0.982,1.0,1.0,1.0
+vibration_impulse,0.088,0.965,0.956,0.956
+vibration_scale,0.026,0.105,0.105,0.105
+평균,0.46,0.663,0.774,0.767

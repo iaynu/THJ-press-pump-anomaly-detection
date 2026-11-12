@@ -1,0 +1,80 @@
+  random f0 s0 B0 진동 RMS 규칙: 1s
+  random f0 s0 B1 Isolation Forest: 27s
+  random f0 s0 B2 kNN 거리: 1s
+  random f0 s0 B3 진동 오토인코더: 8s
+  random f0 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f0 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f0 s0 M1 통합 모델 (9특징 MCD): 13s
+  random f0 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f1 s0 B0 진동 RMS 규칙: 1s
+  random f1 s0 B1 Isolation Forest: 29s
+  random f1 s0 B2 kNN 거리: 1s
+  random f1 s0 B3 진동 오토인코더: 7s
+  random f1 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 1s
+  random f1 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 1s
+  random f1 s0 M1 통합 모델 (9특징 MCD): 16s
+  random f1 s0 M2 최종: 통합 + 전류 전용 (2관점): 41s
+  random f2 s0 B0 진동 RMS 규칙: 1s
+  random f2 s0 B1 Isolation Forest: 27s
+  random f2 s0 B2 kNN 거리: 1s
+  random f2 s0 B3 진동 오토인코더: 8s
+  random f2 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f2 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f2 s0 M1 통합 모델 (9특징 MCD): 13s
+  random f2 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f3 s0 B0 진동 RMS 규칙: 1s
+  random f3 s0 B1 Isolation Forest: 27s
+  random f3 s0 B2 kNN 거리: 1s
+  random f3 s0 B3 진동 오토인코더: 8s
+  random f3 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f3 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 1s
+  random f3 s0 M1 통합 모델 (9특징 MCD): 13s
+  random f3 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f4 s0 B0 진동 RMS 규칙: 1s
+  random f4 s0 B1 Isolation Forest: 27s
+  random f4 s0 B2 kNN 거리: 1s
+  random f4 s0 B3 진동 오토인코더: 8s
+  random f4 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f4 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f4 s0 M1 통합 모델 (9특징 MCD): 14s
+  random f4 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f0 s1 B0 진동 RMS 규칙: 1s
+  random f0 s1 B1 Isolation Forest: 27s
+  random f0 s1 B2 kNN 거리: 1s
+  random f0 s1 B3 진동 오토인코더: 8s
+  random f0 s1 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f0 s1 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f0 s1 M1 통합 모델 (9특징 MCD): 14s
+  random f0 s1 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f1 s1 B0 진동 RMS 규칙: 1s
+  random f1 s1 B1 Isolation Forest: 29s
+  random f1 s1 B2 kNN 거리: 1s
+  random f1 s1 B3 진동 오토인코더: 8s
+  random f1 s1 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f1 s1 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f1 s1 M1 통합 모델 (9특징 MCD): 12s
+  random f1 s1 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f2 s1 B0 진동 RMS 규칙: 1s
+  random f2 s1 B1 Isolation Forest: 28s
+  random f2 s1 B2 kNN 거리: 1s
+  random f2 s1 B3 진동 오토인코더: 8s
+  random f2 s1 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  random f2 s1 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f2 s1 M1 통합 모델 (9특징 MCD): 12s
+  random f2 s1 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  random f3 s1 B0 진동 RMS 규칙: 1s
+  random f3 s1 B1 Isolation Forest: 30s
+  random f3 s1 B2 kNN 거리: 1s
+  random f3 s1 B3 진동 오토인코더: 7s
+  random f3 s1 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 1s
+  random f3 s1 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 1s
+  random f3 s1 M1 통합 모델 (9특징 MCD): 13s
+  random f3 s1 M2 최종: 통합 + 전류 전용 (2관점): 23s
+  random f4 s1 B0 진동 RMS 규칙: 1s
+  random f4 s1 B1 Isolation Forest: 27s
+  random f4 s1 B2 kNN 거리: 1s
+  random f4 s1 B3 진동 오토인코더: 8s
+  random f4 s1 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 1s
+  random f4 s1 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  random f4 s1 M1 통합 모델 (9특징 MCD): 13s
+  random f4 s1 M2 최종: 통합 + 전류 전용 (2관점): 23s

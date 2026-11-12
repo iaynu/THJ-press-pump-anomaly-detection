@@ -1,0 +1,40 @@
+  blocks f0 s0 B0 진동 RMS 규칙: 1s
+  blocks f0 s0 B1 Isolation Forest: 28s
+  blocks f0 s0 B2 kNN 거리: 1s
+  blocks f0 s0 B3 진동 오토인코더: 7s
+  blocks f0 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  blocks f0 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  blocks f0 s0 M1 통합 모델 (9특징 MCD): 13s
+  blocks f0 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  blocks f1 s0 B0 진동 RMS 규칙: 1s
+  blocks f1 s0 B1 Isolation Forest: 26s
+  blocks f1 s0 B2 kNN 거리: 1s
+  blocks f1 s0 B3 진동 오토인코더: 8s
+  blocks f1 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  blocks f1 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  blocks f1 s0 M1 통합 모델 (9특징 MCD): 17s
+  blocks f1 s0 M2 최종: 통합 + 전류 전용 (2관점): 40s
+  blocks f2 s0 B0 진동 RMS 규칙: 1s
+  blocks f2 s0 B1 Isolation Forest: 27s
+  blocks f2 s0 B2 kNN 거리: 1s
+  blocks f2 s0 B3 진동 오토인코더: 8s
+  blocks f2 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  blocks f2 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  blocks f2 s0 M1 통합 모델 (9특징 MCD): 14s
+  blocks f2 s0 M2 최종: 통합 + 전류 전용 (2관점): 25s
+  blocks f3 s0 B0 진동 RMS 규칙: 1s
+  blocks f3 s0 B1 Isolation Forest: 27s
+  blocks f3 s0 B2 kNN 거리: 1s
+  blocks f3 s0 B3 진동 오토인코더: 7s
+  blocks f3 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  blocks f3 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  blocks f3 s0 M1 통합 모델 (9특징 MCD): 13s
+  blocks f3 s0 M2 최종: 통합 + 전류 전용 (2관점): 24s
+  blocks f4 s0 B0 진동 RMS 규칙: 1s
+  blocks f4 s0 B1 Isolation Forest: 28s
+  blocks f4 s0 B2 kNN 거리: 1s
+  blocks f4 s0 B3 진동 오토인코더: 9s
+  blocks f4 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  blocks f4 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  blocks f4 s0 M1 통합 모델 (9특징 MCD): 13s
+  blocks f4 s0 M2 최종: 통합 + 전류 전용 (2관점): 25s

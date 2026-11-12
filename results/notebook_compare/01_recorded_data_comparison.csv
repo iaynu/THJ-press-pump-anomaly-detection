@@ -1,0 +1,5 @@
+model,false_warning_segment_rate,attention_segment_rate,n_direct_normal,abnormal_direct_recall,abnormal_all_recall,precision_mixture,f1_mixture,tp,fn,fp,tn,real_vs_normal_auc
+노트북 최종 (물리특징 MCD 단독),0.026,0.088,114,1.0,0.857,0.857,0.923,18,0,3,111,1.0
+M1 통합 모델 (9특징 MCD),0.008,0.017,114,1.0,1.0,0.947,0.973,18,0,1,113,1.0
+최종 (M2 + 견고한 보정),0.017,0.042,114,1.0,1.0,0.9,0.947,18,0,2,112,1.0
+M3 상태 혼합,0.0,0.158,114,1.0,1.0,1.0,1.0,18,0,0,114,1.0

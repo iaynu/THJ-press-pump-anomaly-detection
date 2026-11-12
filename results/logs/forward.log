@@ -1,0 +1,8 @@
+  forward f0 s0 B0 진동 RMS 규칙: 1s
+  forward f0 s0 B1 Isolation Forest: 27s
+  forward f0 s0 B2 kNN 거리: 1s
+  forward f0 s0 B3 진동 오토인코더: 7s
+  forward f0 s0 B4 형상+스펙트럼 (첨부안, 오경보 1%로 보정): 2s
+  forward f0 s0 B4' 형상+스펙트럼 (첨부안 원래 규칙: 둘 다 q99): 2s
+  forward f0 s0 M1 통합 모델 (9특징 MCD): 13s
+  forward f0 s0 M2 최종: 통합 + 전류 전용 (2관점): 23s

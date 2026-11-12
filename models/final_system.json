@@ -1,0 +1,16 @@
+{
+  "normal_segments": 599,
+  "robust_trim_z": 3.5,
+  "trimmed_training_share": 0.0,
+  "attention_threshold_q95": 0.9727767695099818,
+  "warning_threshold_q99": 0.993666061705989,
+  "trend_rule": {
+    "strict_z": 2.7891712465259304,
+    "ewma_z": 0.836625005944871,
+    "lambda": 0.2
+  },
+  "views": [
+    "joint",
+    "current"
+  ]
+}

@@ -1,0 +1,3 @@
+﻿candidate,policy,level,n_evidence,n_total,precision_mixture,recall_direct,f1_mixture,pr_auc_mixture,true_positive,false_negative,false_positive,true_negative
+A_physics,none,window,382,382,0.9423076923076923,1.0,0.9702970297029703,1.0,49,0,3,330
+A_physics,none,segment,132,141,0.8571428571428571,1.0,0.9230769230769231,1.0,18,0,3,111

@@ -1,0 +1,8 @@
+# Python 3.13 에서 검증 (2026-10-08 전체 재실행)
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+streamlit==1.65.0
+plotly==7.1.0

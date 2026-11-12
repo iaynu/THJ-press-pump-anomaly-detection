@@ -1,0 +1,4 @@
+model,false_warning_segment_rate,attention_segment_rate,n_direct_normal,abnormal_direct_recall,abnormal_all_recall,precision_mixture,f1_mixture,tp,fn,fp,tn,real_vs_normal_auc
+M1 통합 모델 (9특징 MCD),0.008333333333333333,0.016666666666666666,114,1.0,1.0,0.9473684210526315,0.972972972972973,18,0,1,113,1.0
+최종 (M2 + 견고한 보정),0.016666666666666666,0.041666666666666664,114,1.0,1.0,0.9,0.9473684210526316,18,0,2,112,1.0
+M3 상태 혼합,0.0,0.15833333333333333,114,1.0,1.0,1.0,1.0,18,0,0,114,1.0
