@@ -1,8 +1,10 @@
 """Runs inside the notebook's own namespace (after executing it) and scores OUR injected faults with ITS final model
 (A_physics / none: joint 9-feature MCD, window q99 cutoff from its calibration subset, segment warns if any window warns)."""
-import sys
-exec(compile(open("/tmp/claude-0/nbrun/run_nb.py").read(), "run_nb.py", "exec"), globals())
-sys.path.insert(0, "/tmp/claude-0/kamp_project/src")
+import os, sys
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+exec(compile(open(os.path.join(HERE, "run_nb.py")).read(), "run_nb.py", "exec"), globals())
+sys.path.insert(0, os.path.join(ROOT, "src"))
 from kamp.faults import FAULTS, spikes, scale
 
 PICK = [("진동 전체 증가", 1.5), ("진동 전체 증가", 2.0), ("충격 스파이크(16행당 1회)", 2), ("충격 스파이크(16행당 1회)", 3),
@@ -32,8 +34,8 @@ for f, v in PICK:
     rng = np.random.default_rng(0)
     d = run(lambda x, r, f=f, v=v: FAULTS[f][2](x, v, sd, r), rng); d["kind"] = f"{f} {v}"; rows.append(d)
 out = pd.concat(rows)
-out.to_csv("/tmp/claude-0/nbrun/theirs_on_our_faults.csv", index=False)
+out.to_csv(os.path.join(HERE, "..", "notebook_outputs", "theirs_on_our_faults.csv"), index=False)
 print(out.groupby("kind").agg(n=("warning", "size"), warn=("warning", "mean"), att=("attention", "mean"), med_margin=("margin", "median")).round(3).to_string())
 # their real-anomaly and normal-test segment margins for AUC
 seg = final_segments[["segment_id", "source", "split", "direct_evidence", "candidate_score", "warning", "attention", "segment_n_samples"]]
-seg.to_csv("/tmp/claude-0/nbrun/theirs_segments.csv", index=False)
+seg.to_csv(os.path.join(HERE, "..", "notebook_outputs", "theirs_segments.csv"), index=False)

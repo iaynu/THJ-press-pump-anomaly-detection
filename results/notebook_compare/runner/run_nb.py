@@ -36,7 +36,7 @@ matplotlib.use('Agg')
 # 
 
 # ======== CELL 2 [code] ========
-PROJECT_ROOT = "/tmp/claude-0/nbrun/proj"  # change once here
+PROJECT_ROOT = __import__("os").environ.get("NB_PROJECT_ROOT", "/tmp/nbrun/proj")  # change once here (or set NB_PROJECT_ROOT)
 RANDOM_STATE = 42
 FORCE_RECOMPUTE = False
 PIPELINE_REVISION = "colab-normal-reference-v1"

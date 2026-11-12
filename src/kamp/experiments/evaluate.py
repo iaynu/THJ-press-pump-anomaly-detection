@@ -23,10 +23,10 @@ from sklearn.metrics import roc_auc_score, average_precision_score
 
 warnings.filterwarnings("ignore")
 from ..data import load_segments
-from ..faults import FAULTS
+from ..faults import FAULTS, glitch
 from ..models import catalogue, FINAL, DETAIL, M2, M3, JOINT, CURRENT, VIBONLY
 from ..detectors import MCD
-from ..system import fill_short, diagnose
+from ..system import fill_short, diagnose, ewma
 from ..detectors import clear_cache
 
 PICK = [("진동 전체 증가", 1.5), ("진동 전체 증가", 2.0), ("충격 스파이크(16행당 1회)", 2), ("충격 스파이크(16행당 1회)", 3),

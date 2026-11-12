@@ -3,10 +3,12 @@
   threshold: nb (notebook: window q99 on its calibration subset)  |  oof_global (segment q99 of out-of-fold TRAIN scores, one cutoff)
              |  oof_route (same, one cutoff per window length)
 Everything else (features, split, test segments, abnormal file) is untouched."""
-import sys, warnings
-exec(compile(open("/tmp/claude-0/nbrun/run_nb.py").read(), "run_nb.py", "exec"), globals())
+import os, sys, warnings
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+exec(compile(open(os.path.join(HERE, "run_nb.py")).read(), "run_nb.py", "exec"), globals())
 warnings.filterwarnings("ignore")
-sys.path.insert(0, "/tmp/claude-0/kamp_project/src")
+sys.path.insert(0, os.path.join(ROOT, "src"))
 from kamp.faults import FAULTS
 from sklearn.model_selection import KFold
 from sklearn.metrics import roc_auc_score
@@ -49,8 +51,8 @@ for model in oof:
     thr[(model, "oof_global")] = {k: float(np.quantile(o.smax, .99)) for k in (8, 16, 24)}
     thr[(model, "oof_route")] = {k: float(np.quantile(o.smax[o.n.eq(k)], .99)) for k in (8, 16, 24)}
     print(model, "OOF segment scores by n (median / q99 / max):", {k: tuple(np.round([o.smax[o.n.eq(k)].median(), o.smax[o.n.eq(k)].quantile(.99), o.smax[o.n.eq(k)].max()], 1)) for k in (8, 16, 24)}, "n segs", o.n.value_counts().to_dict())
-pd.DataFrame([{"model": m, "rule": r, **{f"cutoff_n{k}": v for k, v in d.items()}} for (m, r), d in thr.items()]).to_csv("/tmp/claude-0/nbrun/variants_cutoffs.csv", index=False)
-print(pd.read_csv("/tmp/claude-0/nbrun/variants_cutoffs.csv").round(1).to_string())
+pd.DataFrame([{"model": m, "rule": r, **{f"cutoff_n{k}": v for k, v in d.items()}} for (m, r), d in thr.items()]).to_csv(os.path.join(HERE, "..", "variants", "variants_cutoffs.csv"), index=False)
+print(pd.read_csv(os.path.join(HERE, "..", "variants", "variants_cutoffs.csv")).round(1).to_string())
 VARIANTS = list(thr)
 
 def seg_table(df):
@@ -110,6 +112,6 @@ clean16 = faulted(lambda x, r: x, np.random.default_rng(0))
 for f, v in PICK:
     record("injected_fault", f"{f} {v}", faulted(lambda x, r, f=f, v=v: FAULTS[f][2](x, v, sd, r), np.random.default_rng(0)), clean16)
 
-pd.DataFrame(out["recorded"]).to_csv("/tmp/claude-0/nbrun/variants_recorded.csv", index=False)
-pd.DataFrame(out["tests"]).to_csv("/tmp/claude-0/nbrun/variants_tests.csv", index=False)
+pd.DataFrame(out["recorded"]).to_csv(os.path.join(HERE, "..", "variants", "variants_recorded.csv"), index=False)
+pd.DataFrame(out["tests"]).to_csv(os.path.join(HERE, "..", "variants", "variants_tests.csv"), index=False)
 print("VARIANTS DONE")
