@@ -130,6 +130,17 @@ docker run --rm -p 8501:8501 kamp-thj                              # 앱 -> http
 docker run --rm -v "$PWD/results:/app/results" kamp-thj python run.py predict --input data/outlier_data.csv
 ```
 
+**Windows PowerShell에서 Docker Desktop을 사용하는 경우**, PowerShell은 Linux의 `$PWD`를 Windows 경로로 전달하므로 결과 폴더 마운트에는 PowerShell 경로를 따옴표로 감싸서 사용하세요.
+
+```powershell
+docker build -t kamp-thj .
+docker run --rm kamp-thj python -m pytest -q
+docker run --rm -p 8501:8501 kamp-thj
+docker run --rm -v "${PWD}/results:/app/results" kamp-thj python run.py predict --input data/outlier_data.csv
+```
+
+앱은 `http://localhost:8501`에서 열립니다. 마지막 예시는 현재 폴더의 `results`를 컨테이너와 공유하며, 해당 폴더가 없으면 실행 전에 `New-Item -ItemType Directory results -Force`로 만들어 주세요.
+
 입력 CSV는 대회 파일과 같은 형식입니다: `index, TimeStamp, AI0_Vibration, AI1_Vibration, AI2_Current` (`Equipment_state`는 없어도 됩니다).
 결측·중복·시각 오류 행도 결과 파일에 모두 남고, `row_status` 열에 처리 방식이 표시됩니다. 예측 파일의 열 설명은 [docs/01_제출물_구성_및_실행.md](docs/01_제출물_구성_및_실행.md).
 
